@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Login</h1>
+    <h1>Registro de Usuarios</h1>
 
     <form @submit.prevent="login">
       <div class="input-group">
