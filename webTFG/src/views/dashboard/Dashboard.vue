@@ -10,11 +10,16 @@
 </template>
 
 <script setup>
-
-import TopBar     from '../../components/TopBar.vue'
-import LeftPanel  from '../../components/LeftPanel.vue'
+import { ref, provide } from 'vue'
+import TopBar      from '../../components/TopBar.vue'
+import LeftPanel   from '../../components/LeftPanel.vue'
 import CenterPanel from '../../components/CenterPanel.vue'
-import RightPanel from '../../components/RightPanel.vue'
+import RightPanel  from '../../components/RightPanel.vue'
+
+// Contador global de refresco. Cada vez que RightPanel hace una acción
+// con éxito lo incrementa, y LeftPanel/CenterPanel lo escuchan con watch.
+const refreshKey = ref(0)
+provide('refreshKey', refreshKey)
 </script>
 
 <style scoped>
