@@ -1,0 +1,65 @@
+/* ── LeftPanel.css ─────────────────────────────────────── */
+ 
+.left-panel { background: #111114; border-right: 1px solid #1e1e24; display: flex; flex-direction: column; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #2a2a35 transparent; }
+.section { padding: 20px 20px 16px; }
+.flex-grow { flex: 1; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 2.5px; color: #44445a; margin: 0 0 14px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.divider { height: 1px; background: #1e1e24; margin: 0 20px; }
+.loading-block { display: flex; flex-direction: column; gap: 10px; }
+.skeleton { height: 54px; background: linear-gradient(90deg,#16161c 25%,#1e1e2a 50%,#16161c 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 10px; }
+.skeleton.tall { height: 44px; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.empty-msg { color: #44445a; font-size: 12px; text-align: center; margin: 12px 0 0; }
+.stats-grid { display: flex; flex-direction: column; gap: 10px; }
+.stat-card { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: #16161c; border-radius: 10px; border: 1px solid #1e1e2a; transition: border-color 0.2s; }
+.stat-card:hover { border-color: #2e2e3e; }
+.stat-icon { width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+.stat-info { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+.stat-value { font-size: 16px; font-weight: 600; color: #e8e8ee; line-height: 1.2; }
+.stat-label { font-size: 11px; color: #55556a; font-weight: 400; }
+.stat-trend { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; }
+.stat-trend.up   { background: rgba(0,230,118,0.1); color: #00e676; }
+.stat-trend.down { background: rgba(255,60,60,0.1);  color: #ff4060; }
+.members-list { display: flex; flex-direction: column; gap: 8px; }
+.member-row { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; transition: background 0.2s; cursor: pointer; }
+.member-row:hover { background: #16161c; }
+.member-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: #fff; flex-shrink: 0; }
+.member-info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.member-name { font-size: 13px; font-weight: 500; color: #d8d8e8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.member-plan { font-size: 11px; color: #44445a; }
+.member-badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+.member-badge.active  { background: rgba(0,230,118,0.1); color: #00e676; }
+.member-badge.warning { background: rgba(255,160,0,0.1); color: #ffa000; }
+.capacity-bar-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.capacity-bar { flex: 1; height: 6px; background: #1e1e2a; border-radius: 10px; overflow: hidden; }
+.capacity-fill { height: 100%; background: linear-gradient(90deg,#ff5c00,#ffa000); border-radius: 10px; transition: width 1s ease; }
+.capacity-value { font-size: 13px; font-weight: 600; color: #ff5c00; }
+.capacity-text { margin: 0; font-size: 11px; color: #44445a; }
+ 
+ 
+/* ── MEDIA QUERIES ─────────────────────────────────────── */
+ 
+/* Tablet (max 1024px) */
+@media (max-width: 1024px) {
+  .left-panel { border-right: none; border-bottom: 1px solid #1e1e24; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .members-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+}
+ 
+/* Móvil grande (max 768px) */
+@media (max-width: 768px) {
+  .section { padding: 14px 16px 12px; }
+  .divider { margin: 0 16px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .members-list { grid-template-columns: 1fr; }
+  .stat-value { font-size: 14px; }
+}
+ 
+/* Móvil pequeño (max 480px) */
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-card { padding: 8px 10px; }
+  .stat-trend { display: none; }
+  .member-badge { display: none; }
+}

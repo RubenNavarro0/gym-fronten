@@ -1,0 +1,93 @@
+/* ── TopBar.css ─────────────────────────────────────── */
+ 
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 0 28px; height: 72px; background: #111114; border-bottom: 1px solid #1e1e24; position: relative; z-index: 10; flex-shrink: 0; }
+.topbar::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,transparent,#ff5c00 30%,#ff5c00 70%,transparent); opacity: 0.4; }
+.left { display: flex; align-items: center; gap: 14px; }
+.left.clickable { cursor: pointer; padding: 6px 10px; border-radius: 10px; transition: background 0.2s; margin: -6px -10px; }
+.left.clickable:hover { background: rgba(255,92,0,0.06); }
+.left.clickable:hover .profile-hint { opacity: 1; }
+.profile-hint { font-size: 11px; color: #ff5c00; opacity: 0; transition: opacity 0.2s; white-space: nowrap; }
+.avatar { position: relative; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg,#ff5c00,#ff8c00); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.avatar-initials { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: #fff; letter-spacing: 1px; }
+.avatar-status { position: absolute; bottom: 1px; right: 1px; width: 10px; height: 10px; border-radius: 50%; background: #00e676; border: 2px solid #111114; }
+.user-info  { display: flex; flex-direction: column; gap: 2px; }
+.user-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: #ff5c00; text-transform: uppercase; }
+.user-name  { font-size: 14px; font-weight: 500; color: #e8e8ee; }
+.center { display: flex; align-items: center; gap: 12px; position: absolute; left: 50%; transform: translateX(-50%); }
+.gym-logo { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,92,0,0.12); border: 1px solid rgba(255,92,0,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.gym-name-block { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.skeleton-name { width: 180px; height: 28px; border-radius: 6px; background: linear-gradient(90deg,#1e1e2a 25%,#2a2a35 50%,#1e1e2a 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.gym-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 4px; color: #ffffff; margin: 0; line-height: 1; }
+.gym-sub  { color: #ff5c00; }
+.gym-city { font-size: 10px; color: #44445a; letter-spacing: 2px; text-transform: uppercase; }
+.right { display: flex; align-items: center; gap: 16px; }
+.time-block { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.time { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: #ffffff; line-height: 1; }
+.date { font-size: 11px; color: #555566; letter-spacing: 0.5px; }
+.active-badge { display: flex; align-items: center; gap: 7px; background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.2); border-radius: 20px; padding: 5px 12px; }
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #00e676; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.8); } }
+.badge-text { font-size: 12px; font-weight: 500; color: #00e676; }
+.logout-btn { background: rgba(255,60,60,0.1); border: 1px solid rgba(255,60,60,0.25); border-radius: 8px; padding: 7px 14px; color: #ff4060; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.logout-btn:hover { background: rgba(255,60,60,0.2); border-color: rgba(255,60,60,0.5); }
+.overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal-perfil { position: relative; width: 460px; max-width: 100%; max-height: 90vh; overflow-y: auto; background: #111114; border: 1px solid #1e1e24; border-radius: 20px; box-shadow: 0 40px 100px rgba(0,0,0,0.7); scrollbar-width: thin; scrollbar-color: #2a2a35 transparent; }
+.modal-perfil::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg,transparent,#ff5c00 30%,#ff8c00 70%,transparent); border-radius: 20px 20px 0 0; }
+.btn-close { position: absolute; top: 16px; right: 16px; background: #1e1e2a; border: none; color: #55556a; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.2s; z-index: 1; }
+.btn-close:hover { background: rgba(255,60,60,0.15); color: #ff4060; }
+.profile-header { display: flex; align-items: center; gap: 20px; padding: 28px 28px 24px; }
+.profile-avatar { width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.profile-info { display: flex; flex-direction: column; gap: 3px; }
+.profile-name  { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: #fff; margin: 0; line-height: 1.1; }
+.profile-rol   { font-size: 11px; font-weight: 600; color: #ff5c00; letter-spacing: 1.5px; text-transform: uppercase; }
+.profile-email { font-size: 12px; color: #44445a; }
+.divider { height: 1px; background: #1e1e24; margin: 0 28px; }
+.p-section { padding: 20px 28px; }
+.p-section-title { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 2.5px; color: #33334a; margin: 0 0 14px; }
+.data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.data-item { display: flex; flex-direction: column; gap: 3px; background: #16161c; border: 1px solid #1e1e2a; border-radius: 10px; padding: 12px 14px; }
+.data-label { font-size: 10px; font-weight: 600; color: #33334a; letter-spacing: 1px; text-transform: uppercase; }
+.data-value { font-size: 13px; color: #d8d8e8; font-weight: 500; word-break: break-all; }
+.accent-green { color: #00e676 !important; }
+.p-footer { padding: 16px 28px 24px; }
+.btn-logout-modal { width: 100%; padding: 11px; background: rgba(255,60,60,0.08); border: 1px solid rgba(255,60,60,0.2); border-radius: 10px; color: #ff4060; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-logout-modal:hover { background: rgba(255,60,60,0.15); border-color: rgba(255,60,60,0.4); }
+ 
+ 
+/* ── MEDIA QUERIES ─────────────────────────────────────── */
+ 
+/* Tablet (max 1024px) */
+@media (max-width: 1024px) {
+  .topbar { padding: 0 16px; height: 64px; }
+  .profile-hint { display: none; }
+  .date { display: none; }
+  .active-badge { padding: 4px 10px; }
+  .badge-text { font-size: 11px; }
+  .gym-name { font-size: 22px; letter-spacing: 2px; }
+}
+ 
+/* Móvil grande (max 768px) */
+@media (max-width: 768px) {
+  .topbar { padding: 0 12px; height: 60px; }
+  .center { display: none; }
+  .time-block { display: none; }
+  .user-label { display: none; }
+  .user-name { font-size: 13px; }
+  .active-badge { display: none; }
+  .logout-btn { padding: 6px 10px; font-size: 11px; }
+}
+ 
+/* Móvil pequeño (max 480px) */
+@media (max-width: 480px) {
+  .topbar { padding: 0 10px; }
+  .avatar { width: 36px; height: 36px; }
+  .avatar-initials { font-size: 13px; }
+  .user-info { display: none; }
+  .logout-btn { padding: 5px 8px; font-size: 11px; }
+  .modal-perfil { width: 100%; border-radius: 12px; }
+  .profile-header { padding: 20px 16px 16px; gap: 12px; }
+  .p-section { padding: 16px; }
+  .divider { margin: 0 16px; }
+  .data-grid { grid-template-columns: 1fr; }
+}

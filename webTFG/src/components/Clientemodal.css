@@ -1,0 +1,115 @@
+/* ── Clientemodal.css ─────────────────────────────────────── */
+ 
+.overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal {
+  position: relative;
+  width: 480px; max-width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  background: #111114;
+  border: 1px solid #1e1e24;
+  border-radius: 20px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a35 transparent;
+}
+.modal::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #ff5c00 30%, #ff8c00 70%, transparent);
+  border-radius: 20px 20px 0 0;
+}
+.btn-close {
+  position: absolute; top: 16px; right: 16px;
+  background: #1e1e2a; border: none; color: #55556a;
+  width: 30px; height: 30px; border-radius: 8px;
+  cursor: pointer; font-size: 13px; transition: all 0.2s;
+  z-index: 1;
+}
+.btn-close:hover { background: rgba(255,60,60,0.15); color: #ff4060; }
+.loading-state { display: flex; align-items: center; gap: 20px; padding: 32px 28px; }
+.sk-avatar { width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(90deg,#16161c 25%,#1e1e2a 50%,#16161c 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+.sk-lines { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.sk-line  { height: 14px; border-radius: 6px; background: linear-gradient(90deg,#16161c 25%,#1e1e2a 50%,#16161c 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+.w60 { width: 60%; } .w40 { width: 40%; } .w80 { width: 80%; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.error-state { padding: 40px; text-align: center; }
+.err-icon { font-size: 32px; display: block; margin-bottom: 12px; color: #ff4060; }
+.error-state p { color: #ff4060; font-size: 14px; }
+.profile-header { display: flex; align-items: center; gap: 20px; padding: 28px 28px 24px; }
+.profile-avatar { width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.profile-info { display: flex; flex-direction: column; gap: 4px; }
+.profile-name { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; color: #fff; margin: 0; line-height: 1.1; }
+.profile-doc  { font-size: 12px; color: #44445a; letter-spacing: 0.5px; }
+.profile-badges { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+.badge-plan { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: rgba(255,92,0,0.12); color: #ff5c00; border: 1px solid rgba(255,92,0,0.2); }
+.badge-estado { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.badge-estado.activa   { background: rgba(0,230,118,0.1);  color: #00e676; }
+.badge-estado.inactiva { background: rgba(255,160,0,0.1);  color: #ffa000; }
+.badge-estado.vencida  { background: rgba(255,60,60,0.1);  color: #ff4060; }
+.divider { height: 1px; background: #1e1e24; margin: 0 28px; }
+.section { padding: 20px 28px; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 2.5px; color: #33334a; margin: 0 0 14px; }
+.data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.data-item { display: flex; flex-direction: column; gap: 3px; background: #16161c; border: 1px solid #1e1e2a; border-radius: 10px; padding: 12px 14px; }
+.data-label { font-size: 10px; font-weight: 600; color: #33334a; letter-spacing: 1px; text-transform: uppercase; }
+.data-value { font-size: 13px; color: #d8d8e8; font-weight: 500; word-break: break-all; }
+.sus-card { background: #16161c; border: 1px solid rgba(255,92,0,0.2); border-radius: 12px; padding: 16px; }
+.sus-top  { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.sus-plan { font-size: 15px; font-weight: 600; color: #e8e8ee; }
+.sus-precio { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: #ff5c00; letter-spacing: 1px; }
+.sus-data-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.sus-data { display: flex; flex-direction: column; gap: 3px; }
+.sus-label { font-size: 9px; font-weight: 600; color: #33334a; letter-spacing: 1px; text-transform: uppercase; }
+.sus-val   { font-size: 13px; font-weight: 600; color: #d8d8e8; }
+.accent-green  { color: #00e676 !important; }
+.accent-orange { color: #ffa000 !important; }
+.accent-red    { color: #ff4060 !important; }
+.dias-bar  { height: 4px; background: #1e1e2a; border-radius: 10px; overflow: hidden; }
+.dias-fill { height: 100%; border-radius: 10px; transition: width 0.8s ease; }
+.historial-list { display: flex; flex-direction: column; gap: 8px; }
+.historial-row  { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: #16161c; border: 1px solid #1e1e2a; border-radius: 10px; }
+.h-dot  { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.h-dot.activa   { background: #00e676; }
+.h-dot.inactiva { background: #ffa000; }
+.h-dot.vencida  { background: #ff4060; }
+.h-info  { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.h-plan  { font-size: 13px; font-weight: 500; color: #c0c0d0; }
+.h-dates { font-size: 11px; color: #44445a; }
+.h-estado { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; flex-shrink: 0; }
+.h-estado.activa   { background: rgba(0,230,118,0.1);  color: #00e676; }
+.h-estado.inactiva { background: rgba(255,160,0,0.1);  color: #ffa000; }
+.h-estado.vencida  { background: rgba(255,60,60,0.1);  color: #ff4060; }
+ 
+ 
+/* ── MEDIA QUERIES ─────────────────────────────────────── */
+ 
+/* Tablet (max 768px) */
+@media (max-width: 768px) {
+  .modal { width: 100%; border-radius: 16px; }
+  .profile-header { padding: 20px 20px 16px; gap: 14px; }
+  .profile-avatar { width: 56px; height: 56px; font-size: 20px; }
+  .profile-name { font-size: 20px; }
+  .section { padding: 16px 20px; }
+  .divider { margin: 0 20px; }
+  .sus-data-row { grid-template-columns: 1fr 1fr; }
+}
+ 
+/* Móvil (max 480px) */
+@media (max-width: 480px) {
+  .overlay { padding: 10px; }
+  .modal { border-radius: 12px; }
+  .profile-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .profile-avatar { width: 48px; height: 48px; font-size: 18px; }
+  .data-grid { grid-template-columns: 1fr; }
+  .sus-data-row { grid-template-columns: 1fr 1fr; }
+  .historial-row { flex-wrap: wrap; gap: 8px; }
+  .h-estado { margin-left: auto; }
+  .sus-top { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+ 
